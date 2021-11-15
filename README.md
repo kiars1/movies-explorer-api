@@ -1,5 +1,5 @@
-# Movies-Explorer Frontend
-Yandex.Практикум диплом. Frontend
+# Movies-Explorer Backend
+Yandex.Практикум диплом. Backend
 
 # Описание
 
