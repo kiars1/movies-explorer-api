@@ -16,8 +16,8 @@ router.post('/api/signup', validateSignup, createUser);
 router.use(auth);
 
 //Пользователи и фильмы
-router.use('api/users', routerUsers);
-router.use('api/movies', routerMovies);
+router.use('/api/users', routerUsers);
+router.use('/api/movies', routerMovies);
 
 //404
 router.use('*', routerErrors);

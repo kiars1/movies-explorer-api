@@ -5,10 +5,10 @@ const {
     getMovies, createMovie, deleteMovie,
 } = require('../controllers/movies');
 
-router.get('api/', getMovies);
+router.get('/', getMovies);
 
-router.post('api/', validateMovie, createMovie);
+router.post('/', validateMovie, createMovie);
 
-  router.delete('api/:movieId', deleteMovie);
+  router.delete('/:movieId', deleteMovie);
 
   module.exports = router;
