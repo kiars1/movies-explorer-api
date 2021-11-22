@@ -7,10 +7,10 @@ const routerErrors = require('./errors');
 const { validateSignin, validateSignup } = require('../middlewares/validation');
 
 //Вход
-router.post('/signin', validateSignin, login);
+router.post('/api/signin', validateSignin, login);
 
 //Регистрация
-router.post('/signup', validateSignup, createUser);
+router.post('/api/signup', validateSignup, createUser);
 
 //Защита авторизацией
 router.use(auth);
