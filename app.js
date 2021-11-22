@@ -3,8 +3,8 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const { errors } = require('celebrate');
-const limiter = require('./middlewares/limiter');
 const helmet = require('helmet');
+const limiter = require('./middlewares/limiter');
 const allRouters = require('./routes/index');
 const errorHandler = require('./middlewares/error');
 const devConfig = require('./utils/devConfig');
@@ -30,7 +30,7 @@ app.use(requestLogger);
 
 app.use(limiter);
 
-app.use('/', allRouters)
+app.use('/', allRouters);
 
 app.use(errorLogger);
 
