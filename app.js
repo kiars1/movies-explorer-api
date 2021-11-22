@@ -8,8 +8,10 @@ const limiter = require('./middlewares/limiter');
 const helmet = require('helmet');
 const allRouters = require('./routes/index');
 const errorHandler = require('./middlewares/error');
+const devConfig = require('./utils/devConfig');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 
+const { dbSrc, NODE_ENV } = process.env;
 const { PORT = 3000 } = process.env;
 
 const app = express();
@@ -21,7 +23,7 @@ app.use(helmet());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-mongoose.connect('mongodb://localhost:27017/moviesdb', {
+mongoose.connect(NODE_ENV === 'production' ? dbSrc : devConfig.dbDev, {
   useNewUrlParser: true,
 });
 
