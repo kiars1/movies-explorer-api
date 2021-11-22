@@ -6,8 +6,8 @@ const {
     getUserMe, patchUser,
 } = require('../controllers/users');
 
-router.get('/me', getUserMe);
+router.get('api/me', getUserMe);
 
-router.patch('/me', validateUser, patchUser);
+router.patch('api/me', validateUser, patchUser);
 
 module.exports = router;
