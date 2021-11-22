@@ -4,6 +4,7 @@ const User = require('../models/user');
 const BadRequestError = require('../errors/BadRequestError');
 const ConflictError = require('../errors/ConflictError');
 const UnauthorizedError = require('../errors/UnauthorizedError');
+const errorMessages = require('../utils/errorMessages');
 
 module.exports.getUserMe = (req, res, next) => {
     User.findById(req.user._id)
@@ -20,7 +21,7 @@ module.exports.patchUser = (req, res) => {
         { new: true, runValidators: true },
     )
         .then((user) => res.send({ user }))
-        .catch((err) => new BadRequestError(`Пользователь не обновлен. Введены некоректные данные: ${err.message}`));
+        .catch((err) => new BadRequestError(errorMessages.UserUpdateError));
 };
 
 module.exports.createUser = (req, res, next) => {
@@ -39,9 +40,9 @@ module.exports.createUser = (req, res, next) => {
         }))
         .catch((err) => {
             if (err.name === 'ValidationError') {
-                next(new BadRequestError('Ошибка: Переданы некорректные данные при создании пользователя'));
+                next(new BadRequestError(errorMessages.UserCreateError));
             } else if (err.name === 'MongoServerError') {
-                next(new ConflictError('Ошибка: Пользователь с такой почтой уже зарегистрирован'));
+                next(new ConflictError(errorMessages.EmailError));
             } else {
                 next(err);
             }

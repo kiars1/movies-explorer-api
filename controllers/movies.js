@@ -2,11 +2,12 @@ const Movie = require('../models/movie');
 const BadRequestError = require('../errors/BadRequestError');
 const NotFoundError = require('../errors/NotFoundError');
 const ForbiddenError = require('../errors/ForbiddenError');
+const errorMessages = require('../utils/errorMessages');
 
 module.exports.getMovies = (req, res) => {
     Movie.find({})
         .then((movie) => res.send({ movie }))
-        .catch((err) => BadRequestError(`Карточки не найдены: ${err.message}`));
+        .catch((err) => BadRequestError(errorMessages.MoviesError));
 };
 
 module.exports.createMovie = (req, res, next) => {
@@ -27,7 +28,7 @@ module.exports.createMovie = (req, res, next) => {
         owner: req.user._id
     })
         .catch((err) => {
-            throw new BadRequestError(`Указаны некорректные данные при создании карточки: ${err.message}`);
+            throw new BadRequestError(errorMessages.MoviesCreateError);
         })
         .then((movie) => res.status(201).send({ movie }))
         .catch(next);
@@ -38,11 +39,11 @@ module.exports.deleteMovie = (req, res, next) => {
     Movie.findById(req.params.movieId)
         .orFail()
         .catch(() => {
-            throw new NotFoundError('Нет карточки с таким id');
+            throw new NotFoundError(errorMessages.MoviesIdError);
         })
         .then((movie) => {
             if (movie.owner.toString() !== req.user._id) {
-                throw new ForbiddenError('Недостаточно прав для выполнения операции');
+                throw new ForbiddenError(errorMessages.RightsError);
             }
             Movie.findByIdAndDelete(req.params.movieId)
                 .then((movieData) => {
