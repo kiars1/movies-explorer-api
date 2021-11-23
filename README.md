@@ -14,4 +14,4 @@ Yandex.Практикум диплом. Backend
 
 Ссылка на Backend
 * `51.250.9.103`
-* * [`Ссылка на сервер`](http://51.250.9.103/api/)
+* * [`Ссылка на сервер`](http://movie.kiars1.nomoredomains.work/api/)
