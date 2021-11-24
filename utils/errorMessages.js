@@ -12,7 +12,7 @@ const errorMesage = {
   UserEmailError: 'Введён некорректный email',
   LoginError: 'Введены неправильные почта или пароль',
   UrlError: 'Введён некорректный URL',
-  ServerError: 'На сервере произошла ошибка'
+  ServerError: 'На сервере произошла ошибка',
 };
 
 module.exports = errorMesage;

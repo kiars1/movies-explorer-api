@@ -1,10 +1,15 @@
 const errorMessages = require('../utils/errorMessages');
 
 const errorHandler = (err, req, res, next) => {
-  const status = err.status || 500;
-  const { message } = err;
-  res.status(status).json( message  || errorMessages.ServerError);
-  return next();
+  const { statusCode = 500, message } = err;
+  res
+    .status(statusCode)
+    .send({
+      message: statusCode === 500
+        ? errorMessages.ServerError
+        : message,
+    });
+  next();
 };
 
 module.exports = errorHandler;

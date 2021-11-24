@@ -1,6 +1,6 @@
-const { celebrate, Joi, CelebrateError } = require("celebrate");
-const isURL = require("validator/lib/isURL");
-const errorMessages = require("../utils/errorMessages");
+const { celebrate, Joi, CelebrateError } = require('celebrate');
+const isURL = require('validator/lib/isURL');
+const errorMessages = require('../utils/errorMessages');
 
 const urlValidator = (value) => {
   const result = isURL(value);
