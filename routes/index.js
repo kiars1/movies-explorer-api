@@ -6,14 +6,14 @@ const routerMovies = require('./movies');
 const routerErrors = require('./errors');
 const { validateSignin, validateSignup } = require('../middlewares/validation');
 
-router.post('/api/signin', validateSignin, login);
+router.post('/signin', validateSignin, login);
 
-router.post('/api/signup', validateSignup, createUser);
+router.post('/signup', validateSignup, createUser);
 
 router.use(auth);
 
-router.use('/api/users', routerUsers);
-router.use('/api/movies', routerMovies);
+router.use('/users', routerUsers);
+router.use('/movies', routerMovies);
 
 router.use('*', routerErrors);
 
