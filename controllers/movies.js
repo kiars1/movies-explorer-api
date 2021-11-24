@@ -7,7 +7,7 @@ const errorMessages = require('../utils/errorMessages');
 module.exports.getMovies = (req, res) => {
   Movie.find({})
     .then((movie) => res.send({ movie }))
-    .catch(() => BadRequestError(errorMessages.MoviesError));
+    .catch(() => new BadRequestError(errorMessages.MoviesError));
 };
 
 module.exports.createMovie = (req, res, next) => {

@@ -9,6 +9,10 @@ const errorMesage = {
   UserUpdateError: 'Данные не обновлены. Введены не корректные данные',
   UserCreateError: 'Пользователь не создан. Переданы некорректные данные при создании пользователя',
   EmailError: 'Пользователь с данной почтой уже зарегистрирован',
+  UserEmailError: 'Введён некорректный email',
+  LoginError: 'Введены неправильные почта или пароль',
+  UrlError: 'Введён некорректный URL',
+  ServerError: 'На сервере произошла ошибка'
 };
 
 module.exports = errorMesage;
