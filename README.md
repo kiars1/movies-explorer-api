@@ -13,6 +13,6 @@ Yandex.Практикум диплом. Backend
 Остальные директории вспомогательные, создаются при необходимости разработчиков.
 
 Ссылка на Backend
-* IP адрес`51.250.9.103`
-* [`https://api.movie.kiars1.nomoredomains.work/api`](https://api.movie.kiars1.nomoredomains.work/api);
-* [`http://api.movie.kiars1.nomoredomains.work/api`](http://api.movie.kiars1.nomoredomains.work/api);
+* IP адрес`51.250.0.179`
+* [`https://api.movie.kiars1.nomoredomains.work/api`](https://api.movie.kiars1.nomoredomains.work/);
+* [`http://api.movie.kiars1.nomoredomains.work/api`](http://api.movie.kiars1.nomoredomains.work/);
