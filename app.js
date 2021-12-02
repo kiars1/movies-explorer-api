@@ -29,7 +29,7 @@ mongoose.connect(NODE_ENV === 'production' ? dbSrc : devConfig.dbDev, {
 
 app.use(requestLogger);
 
-app.use(limiter);
+// app.use(limiter);
 
 app.use('/', allRouters);
 
