@@ -31,7 +31,7 @@ module.exports.validateMovie = celebrate({
     director: Joi.string().min(2).max(30),
     duration: Joi.number().required(),
     year: Joi.string().min(4).max(5),
-    description: Joi.string().min(2).max(200),
+    description: Joi.string().min(2).max(1000),
     image: Joi.string().required().custom(urlValidator),
     trailer: Joi.string().required().custom(urlValidator),
     nameRU: Joi.string().min(2).max(40),
