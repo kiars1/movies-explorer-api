@@ -46,7 +46,7 @@ module.exports.createMovie = (req, res, next) => {
 };
 
 module.exports.deleteMovie = (req, res, next) => {
-  Movie.findById(req.params._id)
+  Movie.findById(req.params.movieId)
     .orFail()
     .catch(() => {
       throw new NotFoundError(errorMessages.MoviesIdError);

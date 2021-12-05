@@ -47,9 +47,3 @@ module.exports.validateUser = celebrate({
     email: Joi.string().email().required(),
   }),
 });
-
-module.exports.validateMovieDel = celebrate({
-  params: Joi.object().keys({
-    _id: Joi.string().alphanum().length(24).hex(),
-  }),
-});
