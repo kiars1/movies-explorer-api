@@ -27,7 +27,7 @@ module.exports.validateSignup = celebrate({
 
 module.exports.validateMovie = celebrate({
   body: Joi.object().keys({
-    country: Joi.string().min(2).max(50),
+    country: Joi.string().min(2).max(100),
     director: Joi.string().min(2).max(100),
     duration: Joi.number().required(),
     year: Joi.string().min(4).max(5),
