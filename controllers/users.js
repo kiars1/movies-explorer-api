@@ -9,7 +9,7 @@ const errorMessages = require('../utils/errorMessages');
 module.exports.getUserMe = (req, res, next) => {
   User.findById(req.user._id)
     .then((user) => {
-      res.send({ email: user.email, name: user.name });
+      res.send({ email: user.email, name: user.name, _id: user._id });
     })
     .catch(next);
 };
